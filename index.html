@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		.container {
+			max-width: 80%;
+			margin: auto;
+			position: relative;
+		}
+		body {
+			font-family: 'Segoe UI', sans-serif;
+			margin: 0;
+			padding: 0;
+		}
+		.search-input{
+			margin: 0 0 10px 5px;
+		}
+		.filters {
+			padding: 0;
+		}
+		.filters li {
+			display: inline-block;
+			margin: 0 5px;
+			cursor: pointer;
+		}
+		.filters li.active {
+			color: #ccc;
+		}
+		.filter-container {
+			display: flex;
+			flex-wrap: wrap;
+		}
+		.filter-container div {
+			width: 33.33333%;
+			text-align: center;
+		}
+		.filter-container div figure {
+			padding: 0;
+			margin: 0;
+		}
+		.filter-container div img {
+			display: block;
+			max-width: 100%;
+			height: auto;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<ul class="filters">
+			<li data-multifilter="a">A</li>
+			<li data-multifilter="b">B</li>
+			<li data-multifilter="c">C</li>
+			<li data-multifilter="l">L</li>
+			<li data-multifilter="k">K</li>
+		</ul>
+		<ul class="filters">
+			<li data-multifilter="uk-breaks">UK Breaks</li>
+			<li data-multifilter="days-out">Days Out</li>
+			<li data-multifilter="beach">Beach</li>
+		</ul>
+		<input type="text" name="search" class="search-input" placeholder="Search..." data-search>
+		<div class="filter-container">
+			<div class="filtr-item" data-category="a" data-sort="value">
+				<figure><img src="assets/img/city_1.jpg" alt="sample" /></figure>
+				<figcaption>Amsterdam</figcaption>
+			</div>
+			<div class="filtr-item" data-category="b" data-sort="value">
+				<figure><img src="assets/img/city_2.jpg" alt="sample" /></figure>
+				<figcaption>Berlin</figcaption>
+			</div>
+			<div class="filtr-item" data-category="l, uk-breaks" data-sort="value">
+				<figure><img src="assets/img/city_3.jpg" alt="sample" /></figure>
+				<figcaption>London</figcaption>
+			</div>
+			<div class="filtr-item" data-category="k, beach, days-out" data-sort="value">
+				<figure><img src="assets/img/industrial_1.jpg" alt="sample" /></figure>
+				<figcaption>Kiev</figcaption>
+			</div>
+			<div class="filtr-item" data-category="m" data-sort="value">
+				<figure><img src="assets/img/industrial_2.jpg" alt="sample" /></figure>
+				<figcaption>Moscow</figcaption>
+			</div>
+			<div class="filtr-item" data-category="m" data-sort="value">
+				<figure><img src="assets/img/industrial_3.jpg" alt="sample" /></figure>
+				<figcaption>Minsk</figcaption>
+			</div>
+			<div class="filtr-item" data-category="b" data-sort="value">
+				<figure><img src="assets/img/nature_1.jpg" alt="sample" /></figure>
+				<figcaption>Bali</figcaption>
+			</div>
+			<div class="filtr-item" data-category="c, beach" data-sort="value">
+				<figure><img src="assets/img/nature_2.jpg" alt="sample" /></figure>
+				<figcaption>Canada</figcaption>
+			</div>
+			<div class="filtr-item" data-category="c" data-sort="value">
+				<figure><img src="assets/img/nature_3.jpg" alt="sample" /></figure>
+				<figcaption>California</figcaption>
+			</div>
+		</div>
+	</div>
+</body>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/filterizr.min.js"></script>
+<script>
+$(function() {
+	$('.filters li').click(function() {
+		$(this).toggleClass('active');
+	});
+	$('.filter-container').filterizr({
+		gutterPixels: 5,
+	});
+});
+</script>
+
+</html>
